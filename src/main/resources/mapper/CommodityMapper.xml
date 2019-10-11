@@ -1,0 +1,31 @@
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fields.business.mapper.CommodityDao">
+	<resultMap type="com.fields.business.object.CommodityDaoDto" id="commodityMap">
+		<id column="BAR_CODE" property="barCode"></id>
+		<result column="CATEGORY_ID" property="categoryId" />
+		<result column="CATEGORY_NAME" property="categoryName" />
+		<result column="PICTURE_NUMBER" property="pictureNumber" />
+		<result column="PURCHASE_PRICE" property="purchasePrice" />
+		<result column="PRICE" property="price" />
+		<result column="COMMODITY_NAME" property="commodityName" />
+		<result column="SUBTITLE" property="subTitle" />
+		<result column="DETAIL" property="detail" />
+		<result column="STATUS" property="status" />
+		<result column="PERIOD_HOUR" property="periodHour" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_TIME" property="updateTime" />
+	</resultMap>
+	<!-- 商品信息查詢 -->
+	<insert id="insertCommodityInfo" useGeneratedKeys="true"
+		keyProperty="id" parameterType="com.fields.business.object.CommodityDaoDto">
+		insert into COMMODITY
+		(BAR_CODE,CATEGORY_ID,CATEGORY_NAME,PICTURE_NUMBER,PURCHASE_PRICE,PRICE,COMMODITY_NAME,SUBTITLE,DETAIL,STATUS,PERIOD_HOUR,CREATE_TIME,UPDATE_TIME)
+		values
+		(#{barCode},#{categoryId},#{categoryName},#{pictureNumber},#{purchasePrice},#{price},#{commodityName},#{subTitle},#{detail},#{status},#{periodHour},#{createTime},#{updateTime})
+	</insert>
+  <select id="selectAll" parameterType="com.fields.business.object.CommodityDaoDto" resultMap="commodityMap">
+    select * from commodity
+  </select>
+</mapper>

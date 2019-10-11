@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fields.business.mapper.CommodityContainerDao">
+	<resultMap type="com.fields.business.object.CommodityContainerDaoDto"
+		id="commodityContainerMap">
+		<id column="CONTAINER_ID" property="containerId"></id>
+		<id column="COMMODITY_ID" property="commodityId"></id>
+		<result column="COMMODITY_NUMBER" property="commodityNumber" />
+		<result column="SELL_PRICE" property="sellPrice" />
+		<result column="STATUS" property="Status" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_TIME" property="updateTime" />
+	</resultMap>
+	<!-- 货柜商品信息查詢 -->
+	<insert id="insertContainerCommodityInfo"
+		useGeneratedKeys="true" keyProperty="id"
+		parameterType="com.fields.business.object.CommodityContainerDaoDto">
+		insert into COMMODITY_CONTAINER
+		(CONTAINER_ID,COMMODITY_ID,COMMODITY_NUMBER,SELL_PRICE,STATUS,CREATE_TIME,UPDATE_TIME)
+		values
+		(#{containerId},#{commodityId},#{commodityNumber},#{sellPrice},#{Status},#{createTime},#{updateTime})
+	</insert>
+</mapper>
