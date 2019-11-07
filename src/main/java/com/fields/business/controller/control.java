@@ -44,6 +44,6 @@ public class control {
 	}
 	@RequestMapping("/jsp/addCommodity")
 	public String addCommodityUrl() {
-		return "jsp/addCommodity";
+		 return "jsp/addCommodity";
 	}
 }
